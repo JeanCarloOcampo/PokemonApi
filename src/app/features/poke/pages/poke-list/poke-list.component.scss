@@ -1,0 +1,112 @@
+.container{
+    min-height:100vh;
+    padding:40px;
+    background:linear-gradient(180deg,#0d47a1,#42a5f5);
+}
+.title{
+    text-align:center;
+    color:#ffcb05;
+    font-size:3.5rem;
+    margin-bottom:40px;
+    text-shadow:4px 4px 8px rgba(0,0,0,.4);
+    letter-spacing:3px;
+}
+.pokemon-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:30px;
+}
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin-top:50px;
+}
+.btn{
+    border:none;
+    cursor:pointer;
+    padding:15px 35px;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    transition:.3s;
+}
+.previous{
+    background:#ef5350;
+}
+.next{
+    background:#43a047;
+}
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.35);
+}
+.btn:disabled{
+    background:#9e9e9e;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+.page-number{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+.loading-container{
+    height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:25px;
+}
+
+.spinner{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:8px solid rgba(255,255,255,.25);
+    border-top:8px solid #f44336;
+    border-right:8px solid #f44336;
+    animation:spin .9s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+.error-container{
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:20px;
+    color:white;
+}
+.error-container h2{
+    color:#ff5252;
+    font-size:2rem;
+}
+.error-container p{
+    font-size:1.2rem;
+}
+.retry-btn{
+    border:none;
+    cursor:pointer;
+    padding:15px 30px;
+    border-radius:40px;
+    background:#ffcb05;
+    color:#222;
+    font-weight:bold;
+    font-size:17px;
+    transition:.3s;
+}
+.retry-btn:hover{
+    transform:scale(1.05);
+}

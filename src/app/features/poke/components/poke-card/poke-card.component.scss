@@ -1,0 +1,100 @@
+.card {
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, .25);
+    transition: .3s;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+.image img {
+    width: 150px;
+    height: 100px;
+    transition: .3s;
+}
+
+.card:hover img {
+    transform: scale(1.15);
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.content h2 {
+    text-transform: capitalize;
+    margin-bottom: 12px;
+    font-size: 1.8rem;
+}
+.type {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, .25);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.stats div {
+    flex: 1;
+    background: rgba(255, 255, 255, .2);
+    padding: 10px;
+}
+.stats span {
+    display: block;
+    font-size: .8rem;
+}
+
+.stats strong {
+    font-size: 1.2rem;
+}
+
+.abilities {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, .2);
+    padding: 12px;
+}
+
+.abilities span:first-child {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.abilities-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.ability-badge {
+    background: rgba(255, 255, 255, .3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: .75rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.card {
+    background: linear-gradient(#5c5954,);
+}
+.id{
+    display:block;
+    font-size:1rem;
+    font-weight:bold;
+    margin-bottom:10px;
+}

@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="title">
+        Pokédex
+    </h1>
+    <div
+        class="loading-container"
+        *ngIf="loading">
+        <div class="spinner">
+            <div class="center-circle"></div>
+        </div>
+        <h2>Cargando Pokémon...</h2>
+    </div>
+    <div
+        class="error-container"
+        *ngIf="error">
+
+        <h2>Error al cargar los Pokémon</h2>
+        <p>
+            Intenta nuevamente.
+        </p>
+        <button
+            class="retry-btn"
+            (click)="loadPokemons()">
+
+            Reintentar
+        </button>
+    </div>
+    <div
+        class="pokemon-grid"
+        *ngIf="!loading && !error">
+        <app-poke-card
+            *ngFor="let pokemon of pokemons$ | async"
+            [pokemon]="pokemon">
+        </app-poke-card>
+    </div>
+    <div
+        class="pagination"
+        *ngIf="!loading && !error">
+        <button
+            class="btn previous"
+            (click)="previousPage()"
+            [disabled]="offset === 0">
+            Anterior
+        </button>
+        <span class="page-number">
+            Página {{ (offset / limit) + 1 }}
+        </span>
+        <button
+            class="btn next"
+            (click)="nextPage()">
+            Siguiente 
+        </button>
+    </div>
+</div>

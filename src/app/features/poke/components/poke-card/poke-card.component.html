@@ -1,0 +1,41 @@
+<div class="card" [ngClass]="firstType">
+    <div class="image">
+        <img [src]="image" [alt]="pokemon.name">
+    </div>
+
+    <div class="content">
+        <span class="id"> #{{ pokemon.id }}</span>
+        <h2> {{ pokemon.name }} </h2>
+        <span class="type" [ngClass]="firstType">
+            {{ firstType }}
+        </span>
+
+        <div class="stats">
+            <div>
+                <span>HP</span>
+                <strong>{{ hp }}</strong>
+            </div>
+
+            <div>
+                <span>Ataque</span>
+                <strong>{{ attack }}</strong>
+            </div>
+
+            <div>
+                <span>Velocidad</span>
+                <strong>{{ speed }}</strong>
+            </div>
+        </div>
+
+        <div class="abilities">
+            <span>Habilidades</span>
+            <div class="abilities-list">
+                <span
+                    class="ability-badge"
+                    *ngFor="let ability of abilities">
+                    {{ ability }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
