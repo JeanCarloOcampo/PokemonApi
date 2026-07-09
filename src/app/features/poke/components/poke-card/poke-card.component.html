@@ -6,7 +6,10 @@
     <div class="content">
         <span class="id"> #{{ pokemon.id }}</span>
         <h2> {{ pokemon.name }} </h2>
-        <span class="type" [ngClass]="firstType">
+        <span
+            class="type"
+            [ngClass]="firstType"
+            (click)="onTypeClick()">
             {{ firstType }}
         </span>
 

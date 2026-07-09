@@ -53,3 +53,16 @@ export interface Ability {
     name: string;
     url: string;
 }
+
+export interface TypeDetail {
+    name: string;
+    damage_relations: DamageRelations;
+}
+export interface DamageRelations {
+    double_damage_from: TypeRef[];
+    double_damage_to: TypeRef[];
+}
+export interface TypeRef {
+    name: string;
+    url: string;
+}

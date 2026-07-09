@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
-import { Pokemon, PokemonListItem, PokemonListResponse } from '../model/poke.model';
+import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
+import { Pokemon, PokemonListItem, PokemonListResponse, TypeDetail } from '../model/poke.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,25 @@ export class PokeService {
 
   getPokemonByUrl(pokemon: PokemonListItem): Observable<Pokemon>{
     return this.http.get<Pokemon>(pokemon.url);
+  }
+
+  getAllPokemonNames(): Observable<PokemonListItem[]> {
+    return this.http.get<PokemonListResponse>(`${this.POKE_API}?limit=1300`).pipe(
+      map((response: PokemonListResponse) => response.results)
+    );
+  }
+
+  searchRelated(matches: PokemonListItem[]): Observable<Pokemon[]> {
+    if (matches.length === 0) {
+      return of([]);
+    }
+
+    const requests = matches.map((pokemon) => this.getPokemonByUrl(pokemon));
+    return forkJoin(requests);
+  }
+
+  getTypeDetail(url: string): Observable<TypeDetail> {
+    return this.http.get<TypeDetail>(url);
   }
 
 }
