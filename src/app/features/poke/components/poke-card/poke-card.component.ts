@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pokemon } from '../../model/poke.model';
 
 @Component({
@@ -9,11 +9,16 @@ import { Pokemon } from '../../model/poke.model';
 })
 export class PokeCardComponent {
   @Input() pokemon!: Pokemon;
+  @Output() typeSelected = new EventEmitter<string>();
+
   get image(): string {
     return this.pokemon.sprites.front_default;
   }
   get firstType(): string {
     return this.pokemon.types[0].type.name;
+  }
+  get firstTypeUrl(): string {
+    return this.pokemon.types[0].type.url;
   }
   private getStat(statName: string): number {
     const stat = this.pokemon.stats.find(s => s.stat.name === statName);
@@ -32,5 +37,9 @@ export class PokeCardComponent {
     return this.pokemon.abilities
       .slice(0, 3)
       .map(a => a.ability.name);
+  }
+
+  onTypeClick(): void {
+    this.typeSelected.emit(this.firstTypeUrl);
   }
 }
